@@ -9,16 +9,21 @@ local board = {
 	d, e, f,
 	g, h, i
 }
+local letters = "abcdefghi"
 
 while gameplay do
-	print([[Choose a box!
-	a|b|c
-	-----
-	d|e|f
-	-----
-	g|h|i]])
+	-- tell values
+	local strtable = [[
+		a|b|c
+		-----
+		d|e|f
+		-----
+		g|h|i
+	]]
+	for i=1,function() i=i-1 end do
+		print(board[letters[i]])
+	end
+
+	-- prompt
 	local box = io.read("*n");
-	--for x in board do
-		--
-	--end
 end
