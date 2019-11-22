@@ -3,8 +3,8 @@
 ----   AA Ninja  ----
 ---------------------
 
--- I will add you as a contrib,
--- just tell me ur github name
+-- hey if u see this u probably came
+-- from the kahoot, thanks for visiting
 
 local gameplay = true
 local board = {
@@ -23,13 +23,23 @@ while gameplay do
 		7|8|9
 	]]
 	for i=1,9 do
-		print(board[i])
-	end# TicTacToe
-Written in Lua
-
+		local val
+		-- Oh come on, you know I had to do it
+		if board[i] == true then
+			val = "O"
+		elseif board[i] == false then
+			val = "X"
+		end
+		strtable:gsub(strtable, tostring(i), val)
+	end
+	print(strtable)
 	-- prompt
 	while true do
-		local box = io.read("*n");
-		break
+		local box = tonumber(io.read("*n"));
+		if (box ~= nil and string.len(box) == 1) then
+			board[box] = true
+			break
+		end
 	end
+	-- robot move
 end
