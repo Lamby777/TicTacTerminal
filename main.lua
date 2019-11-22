@@ -3,27 +3,33 @@
 ----   AA Ninja  ----
 ---------------------
 
+-- I will add you as a contrib,
+-- just tell me ur github name
+
 local gameplay = true
 local board = {
 	a, b, c,
 	d, e, f,
 	g, h, i
 }
-local letters = "abcdefghi"
 
 while gameplay do
 	-- tell values
 	local strtable = [[
-		a|b|c
+		1|2|3
 		-----
-		d|e|f
+		4|5|6
 		-----
-		g|h|i
+		7|8|9
 	]]
-	for i=1,function() i=i-1 end do
-		print(board[letters[i]])
-	end
+	for i=1,9 do
+		print(board[i])
+	end# TicTacToe
+Written in Lua
 
 	-- prompt
-	local box = io.read("*n");
+	while true do
+		local box = io.read("*n");
+		break
+	end
 end
