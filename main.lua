@@ -1,7 +1,7 @@
---io.read("*n")
---------------------
---    DexieT
---------------------
+---------------------
+--  DexieTheSheep  --
+----   AA Ninja  ----
+---------------------
 
 local gameplay = true
 local board = {
@@ -18,7 +18,7 @@ while gameplay do
 	-----
 	g|h|i]])
 	local box = io.read("*n");
-	for x in board do
+	--for x in board do
 		--
-	end
+	--end
 end
