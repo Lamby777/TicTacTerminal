@@ -29,16 +29,17 @@ while gameplay do
 		else
 			val = " "
 		end
-		strtable.gsub(strtable, tostring(i), val)
+		strtable = string.gsub(strtable, tostring(i), val)
 	end
 	print(strtable)
 	-- prompt
 	while true do
 		local box = tonumber(io.read("*n"));
-		if (box ~= nil and string.len(box) == 1) then
+		if (box ~= nil and string.len(box) == 1) and board[box] == nil then
 			board[box] = true
 			break
 		end
+		print("Please enter a valid box\n")
 	end
 	-- robot move
 end
