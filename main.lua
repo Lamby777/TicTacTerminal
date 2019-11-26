@@ -3,15 +3,12 @@
 ----   AA Ninja  ----
 ---------------------
 
--- hey if u see this u probably came
--- from the kahoot, thanks for visiting
-
 local gameplay = true
-local board = {
-	a, b, c,
-	d, e, f,
-	g, h, i
-}
+local board = {}
+
+for i=1,9 do
+	board[i] = nil
+end
 
 while gameplay do
 	-- tell values
@@ -29,8 +26,10 @@ while gameplay do
 			val = "O"
 		elseif board[i] == false then
 			val = "X"
+		else
+			val = " "
 		end
-		strtable:gsub(strtable, tostring(i), val)
+		strtable.gsub(strtable, tostring(i), val)
 	end
 	print(strtable)
 	-- prompt
