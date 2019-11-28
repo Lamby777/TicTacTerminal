@@ -3,19 +3,23 @@
 ----   AA Ninja  ----
 ---------------------
 
-local board = {}
 local money = 50
 local winner
 
-print("------------------------------")
+print("----------New Game------------\n")
 
-function clearBoard()
-	for i=1,9 do
-		board[i] = nil
+function table.newCleared(default, min, max)
+	if max == nil then
+		max = min
+		min = 1
 	end
+	local table = {}
+	for i=min,max do table[i] = default end
+	return table
 end
 
-clearBoard()
+
+local board = table.newCleared(nil, 9)
 
 function checkWin()
 	for i=1,3 do
@@ -36,11 +40,11 @@ end
 
 function printBoard()
 	local strtable = [[
-		1|2|3
-		-----
-		4|5|6
-		-----
-		7|8|9
+			1|2|3
+			-----
+			4|5|6
+			-----
+			7|8|9
 	]]
 	for i=1,9 do
 		local val
@@ -57,15 +61,13 @@ function printBoard()
 	print(strtable)
 end
 
-function ifWinner()
-	winner = checkWin()
-	if winner ~= nil then
-		if winner == true then winner = "Player"
-		elseif winner == false then winner = "Robot" end
-		printBoard()
-		print(winner .. " wins!\n\n------------------------------\n")
-		break
+function AI() -- chooses where robot moves
+	-- very simple, add algorithm later
+	local available = {}
+	for i=1,9 do
+		if board[i] == nil then table.insert(available, i) end
 	end
+	return available[math.random(1,#available)]
 end
 
 while money > 0 do -- until bankrupt
@@ -73,7 +75,7 @@ while money > 0 do -- until bankrupt
 while true do -- for each move
 	-- tell values
 	printBoard()
-	
+
 	-- prompt
 	while true do
 		local box = tonumber(io.read("*n"));
@@ -85,15 +87,29 @@ while true do -- for each move
 	end
 
 	-- check for win
-	ifWinner()
+	winner = checkWin()
+	if winner ~= nil then
+		if winner == true then winner = "Player"
+		elseif winner == false then winner = "Robot" end
+		printBoard()
+		print(winner .. " wins!\n\n------------------------------\n")
+		break
+	end
 	
 	-- robot move
-	--
+	board[AI()] = false
 
 	-- check for win
-	ifWinner()
+	winner = checkWin()
+	if winner ~= nil then
+		if winner == true then winner = "Player"
+		elseif winner == false then winner = "Robot" end
+		printBoard()
+		print(winner .. " wins!\n\n------------------------------\n")
+		break
+	end
 end
 
-clearBoard()
+board = table.newCleared(nil, 9)
 
 end
