@@ -7,6 +7,14 @@ local money = 50
 local winner
 
 print("----------New Game------------\n")
+print([[
+		Type a number
+			1|2|3
+			-----
+			4|5|6
+			-----
+			7|8|9
+]])
 
 function table.newCleared(default, min, max)
 	if max == nil then
@@ -54,7 +62,8 @@ function printBoard()
 		elseif board[i] == false then
 			val = "X"
 		else
-			val = tostring(i)
+			--val = tostring(i)
+			val = " "
 		end
 		strtable = string.gsub(strtable, tostring(i), val)
 	end
