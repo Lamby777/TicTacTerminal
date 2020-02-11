@@ -4,7 +4,18 @@
 ---------------------
 
 local money = 50
+local prize = 20
 local winner
+local ways = {
+	{1,2,3},
+	{4,5,6},
+	{7,8,9},
+	{1,4,7},
+	{2,5,8},
+	{3,6,9},
+	{1,5,9},
+	{7,5,3},
+}
 
 print("----------New Game------------\n")
 print([[
@@ -113,6 +124,7 @@ while true do -- for each move
 	if winner ~= nil then
 		if winner == true then winner = "Player"
 		elseif winner == false then winner = "Robot" end
+		money += prize
 		printBoard()
 		print(winner .. " wins!\n\n------------------------------\n")
 		break
