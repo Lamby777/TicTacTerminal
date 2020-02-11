@@ -41,18 +41,11 @@ end
 local board = table.newCleared(nil, 9)
 
 function checkWin()
-	for i=1,3 do
-		local boardi = board[i]
-		local ixn = (i*3)-2 -- 1, 4, 7
-		local boardix = board[ixn]
-		if boardix == board[ixn+1] and boardix == board[ixn+2] and boardix ~= nil then
-			return boardix
-		elseif boardi == board[i+3] and boardi == board[i+6] and boardi ~= nil then
-			return board[i]
-		elseif ((board[1] == board[5] and board[5] == board[9])
-			or (board[3] == board[5] and board[5] == board[7]))
-			and (board[5] ~= nil) then
-			return board[5]
+	for i in ways do
+		if board[i][1] == board[i][2] or
+		board[i][2] == board[i][3] or
+		board[i][1] == board[i][3] then
+			
 		end
 	end
 end
