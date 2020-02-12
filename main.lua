@@ -45,7 +45,7 @@ function checkWin()
 		local b1 = board[v[1]]
 		if b1 == board[v[2]] and
 		b1 == board[v[3]] and
-		b1 ~= nil then
+		board[v[1]] ~= nil then
 			return board[v[1]]
 		end
 	end
@@ -67,8 +67,8 @@ function printBoard()
 		elseif board[i] == false then
 			val = "X"
 		else
-			--val = tostring(i)
-			val = " "
+			val = tostring(i)
+			--val = " "
 		end
 		strtable = string.gsub(strtable, tostring(i), val)
 	end
