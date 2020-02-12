@@ -83,6 +83,18 @@ function AI() -- chooses where robot moves
 	for i=1,9 do
 		if board[i] == nil then table.insert(available, i) end
 	end
+	-- Availables listed, now do super smort big brain stuff
+	for i,v in pairs(ways) do
+		local b1 = board[v[1]]
+		local b2 = board[v[2]]
+		local b3 = board[v[3]]
+		if not b1 then
+			if b1 == b2 and b1 == b3 and
+			b1 ~= nil then
+				return b1
+			end
+		end
+	end
 	return available[math.random(1,#available)]
 end
 
