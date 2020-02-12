@@ -20,7 +20,7 @@ local ways = {
 print("----------New Game------------\n")
 --print([[
 print([[
-		Type a number
+		Type a box number
 ]])
 --			1|2|3
 --			-----
@@ -55,11 +55,11 @@ end
 
 function printBoard()
 	local strtable = [[
-			1|2|3
+			7|8|9
 			-----
 			4|5|6
 			-----
-			7|8|9
+			1|2|3
 	]]
 	for i=1,9 do
 		local val
@@ -99,7 +99,7 @@ while true do -- for each move
 			board[box] = true
 			break
 		end
-		print("Please enter a valid box\n")
+		print("Please enter a valid box number\n")
 	end
 
 	-- check for win
@@ -108,7 +108,8 @@ while true do -- for each move
 		if winner == true then winner = "Player"
 		elseif winner == false then winner = "Robot" end
 		printBoard()
-		print(winner .. " wins!\n\n------------------------------\n")
+		print(winner ..
+		" wins!\n\n------------------------------\n")
 		break
 	end
 	
