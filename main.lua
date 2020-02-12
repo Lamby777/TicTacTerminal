@@ -41,13 +41,14 @@ end
 local board = table.newCleared(nil, 9)
 
 function checkWin()
-	for i in ways do
-		if board[i[1]] == board[i[2]] and
-		board[i[1]] == board[i[3]] then
-			return true
+	for _,v in pairs(ways) do
+		local b1 = board[v[1]]
+		if b1 == board[v[2]] and
+		b1 == board[v[3]] and
+		b1 ~= nil then
+			return board[v[1]]
 		end
 	end
-	return false
 end
 
 function printBoard()
@@ -117,7 +118,7 @@ while true do -- for each move
 	if winner ~= nil then
 		if winner == true then winner = "Player"
 		elseif winner == false then winner = "Robot" end
-		money += prize
+		money = money + prize
 		printBoard()
 		print(winner .. " wins!\n\n------------------------------\n")
 		break
