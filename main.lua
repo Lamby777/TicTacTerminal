@@ -41,13 +41,14 @@ end
 local board = table.newCleared(nil, 9)
 
 function checkWin()
+	local win = false
 	for i in ways do
-		if board[i][1] == board[i][2] or
-		board[i][2] == board[i][3] or
-		board[i][1] == board[i][3] then
-			
+		if board[i[1]] == board[i[2]] and
+		board[i[1]] == board[i[3]] then
+			win = true break
 		end
 	end
+	return win
 end
 
 function printBoard()
