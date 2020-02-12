@@ -18,14 +18,16 @@ local ways = {
 }
 
 print("----------New Game------------\n")
+--print([[
 print([[
 		Type a number
-			1|2|3
-			-----
-			4|5|6
-			-----
-			7|8|9
 ]])
+--			1|2|3
+--			-----
+--			4|5|6
+--			-----
+--			7|8|9
+--]])
 
 function table.newCleared(default, min, max)
 	if max == nil then
