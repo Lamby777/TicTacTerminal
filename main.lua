@@ -122,7 +122,7 @@ while true do -- for each move
 			print("gg n00b")
 			money = money + prize
 		elseif winner == false then
-			print("ur gay")
+			print("ur mom gay")
 		end
 		printBoard()
 		break
