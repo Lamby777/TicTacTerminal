@@ -107,7 +107,7 @@ while true do -- for each move
 
 	-- prompt
 	while true do
-		local box = tonumber(io.read("*n"));
+		local box = tonumber(io.read("*l"));
 		if (box ~= nil and string.len(box) == 1) and board[box] == nil then
 			board[box] = true
 			break
@@ -118,11 +118,13 @@ while true do -- for each move
 	-- check for win
 	winner = checkWin()
 	if winner ~= nil then
-		if winner == true then winner = "Player"
-		elseif winner == false then winner = "Robot" end
+		if winner == true then
+			print("gg n00b")
+			money = money + prize
+		elseif winner == false then
+			print("ur gay")
+		end
 		printBoard()
-		print(winner ..
-		" wins!\n\n------------------------------\n")
 		break
 	end
 	
@@ -136,7 +138,7 @@ while true do -- for each move
 			print("gg n00b")
 			money = money + prize
 		elseif winner == false then
-			print("ur gay")
+			print("ur mom gay")
 		end
 		printBoard()
 		break
