@@ -91,11 +91,12 @@ function AI() -- chooses where robot moves
 		if not b1 then
 			if b1 == b2 and b1 == b3 and
 			b1 ~= nil then
-				return b1
 			end
 		end
 	end
-	return available[math.random(1,#available)]
+	if not move then
+		return available[math.random(1,#available)]
+	else return move end
 end
 
 while money > 0 do -- until bankrupt
@@ -131,11 +132,13 @@ while true do -- for each move
 	-- check for win
 	winner = checkWin()
 	if winner ~= nil then
-		if winner == true then winner = "Player"
-		elseif winner == false then winner = "Robot" end
-		money = money + prize
+		if winner == true then
+			print("gg n00b")
+			money = money + prize
+		elseif winner == false then
+			print("ur gay")
+		end
 		printBoard()
-		print(winner .. " wins!\n\n------------------------------\n")
 		break
 	end
 end
