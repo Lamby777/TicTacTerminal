@@ -124,6 +124,7 @@ while true do -- for each move
 		elseif winner == false then
 			print("ur mom gay")
 		end
+		print("\n")
 		printBoard()
 		break
 	end
@@ -140,6 +141,7 @@ while true do -- for each move
 		elseif winner == false then
 			print("ur mom gay")
 		end
+		print("\n")
 		printBoard()
 		break
 	end
