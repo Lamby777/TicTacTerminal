@@ -133,6 +133,7 @@ while true do -- for each move
 	board[AI()] = false
 
 	-- check for win
+	-- (Lua is not as DRY as I thought)
 	winner = checkWin()
 	if winner ~= nil then
 		if winner == true then
