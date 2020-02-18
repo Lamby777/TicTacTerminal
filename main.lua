@@ -78,7 +78,6 @@ function printBoard()
 end
 
 function AI() -- chooses where robot moves
-	-- very simple, add algorithm later
 	local available = {}
 	for i=1,9 do
 		if board[i] == nil then table.insert(available, i) end
