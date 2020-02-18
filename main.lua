@@ -87,10 +87,8 @@ function AI() -- chooses where robot moves
 		local b1 = board[v[1]]
 		local b2 = board[v[2]]
 		local b3 = board[v[3]]
-		if not b1 then
-			if b1 == b2 and b1 == b3 and
-			b1 ~= nil then
-			end
+		if (b1 == b2 and b1 ~= nil) then
+		elseif \\ == b2 and b2 ~= nil) then
 		end
 	end
 	if not move then
