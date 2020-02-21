@@ -17,6 +17,7 @@ local ways = {
 	{7,5,3},
 }
 math.randomseed(os.time())
+for x=1, x<math.random(10) do math.random() end
 
 print("----------New Game------------\n")
 --print([[
