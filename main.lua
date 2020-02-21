@@ -59,7 +59,7 @@ function checkWin()
 			return board[v[1]]
 		end
 	end
-	local available = getAvailables()
+	if #getAvailables() = 0 then return "Tie" end
 end
 
 function printBoard()
@@ -134,14 +134,15 @@ while true do -- for each move
 	end
 
 	-- check for win
-	-- (Lua is not as DRY as I thought)
 	winner = checkWin()
 	if winner ~= nil then
-		if winner == true then
-			print("gg n00b")
-			money = money + prize
+		if winner == "Tie" then
+			print("No winner...")
 		elseif winner == false then
 			print("ur mom gay")
+		elseif winner == true then
+			print("gg n00b")
+			money = money + prize
 		end
 		print("\n")
 		printBoard()
