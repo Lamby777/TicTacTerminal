@@ -16,6 +16,7 @@ local ways = {
 	{1,5,9},
 	{7,5,3},
 }
+math.randomseed(os.time())
 
 print("----------New Game------------\n")
 --print([[
@@ -42,6 +43,13 @@ end
 
 local board = table.newCleared(nil, 9)
 
+function getAvailables()
+	local available = {}
+	for i=1,9 do
+		if board[i] == nil then table.insert(available, i) end
+	end
+end
+
 function checkWin()
 	for _,v in pairs(ways) do
 		local b1 = board[v[1]]
@@ -51,6 +59,7 @@ function checkWin()
 			return board[v[1]]
 		end
 	end
+	local available = getAvailables()
 end
 
 function printBoard()
@@ -78,17 +87,23 @@ function printBoard()
 end
 
 function AI() -- chooses where robot moves
-	local available = {}
-	for i=1,9 do
-		if board[i] == nil then table.insert(available, i) end
-	end
+	local available = getAvailables()
+	local move
+	if #available == 0 then return end
 	-- Availables listed, now do super smort big brain stuff
 	for i,v in pairs(ways) do
 		local b1 = board[v[1]]
 		local b2 = board[v[2]]
 		local b3 = board[v[3]]
 		if (b1 == b2 and b1 ~= nil) then
-		elseif \\ == b2 and b2 ~= nil) then
+			move = b3
+			break
+		elseif (b1 == b3 and b1 ~= nil) then
+			move = b2
+			break
+		elseif (b2 == b3 and b2 ~= nil) then
+			move = b1
+			break
 		end
 	end
 	if not move then
@@ -112,22 +127,11 @@ while true do -- for each move
 		print("Please enter a valid box number\n")
 	end
 
-	-- check for win
-	winner = checkWin()
-	if winner ~= nil then
-		if winner == true then
-			print("gg n00b")
-			money = money + prize
-		elseif winner == false then
-			print("ur mom gay")
-		end
-		print("\n")
-		printBoard()
-		break
-	end
-	
 	-- robot move
-	board[AI()] = false
+	local robomove = AI()
+	if robomove then
+		board[robomove] = false
+	end
 
 	-- check for win
 	-- (Lua is not as DRY as I thought)
