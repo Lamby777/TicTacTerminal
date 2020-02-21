@@ -17,7 +17,9 @@ local ways = {
 	{7,5,3},
 }
 math.randomseed(os.time())
-for x=1, x<math.random(10) do math.random() end
+for x=1,math.random(3,6) do
+	math.random()
+end
 
 print("----------New Game------------\n")
 --print([[
@@ -60,7 +62,7 @@ function checkWin()
 			return board[v[1]]
 		end
 	end
-	if #getAvailables() = 0 then return "Tie" end
+	if #getAvailables() == 0 then return "Tie" end
 end
 
 function printBoard()
