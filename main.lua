@@ -139,9 +139,10 @@ do -- for each move
 	winner = checkWin()
 	if winner ~= nil then
 		if winner == "Tie" then
-			print("No winner...")
+			print("No winner... both of you suck.")
 		elseif winner == false then
-			print("ur mom gay")
+			print([[IMAGINE LOSING TO A ROBOT MADE BY A
+14 YEAR OLD CODE SKRUB LOL]])
 		elseif winner == true then
 			print("gg n00b")
 			money = money + prize
