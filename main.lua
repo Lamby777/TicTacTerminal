@@ -142,7 +142,7 @@ do -- for each move
 			print("No winner... both of you suck.")
 		elseif winner == false then
 			print([[IMAGINE LOSING TO A ROBOT MADE BY A
-14 YEAR OLD CODE SKRUB LOL]])
+14 YEAR OLD LETTUCE LOL]])
 		elseif winner == true then
 			print("gg n00b")
 			money = money + prize
@@ -151,8 +151,5 @@ do -- for each move
 		printBoard()
 		break
 	end
-end
-
-board = table.newCleared(nil, 9)
-
-end
+-- Refresh board
+end board = table.newCleared(nil, 9) end
