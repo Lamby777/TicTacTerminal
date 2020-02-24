@@ -51,6 +51,7 @@ function getAvailables()
 	for i=1,9 do
 		if board[i] == nil then table.insert(available, i) end
 	end
+	return available
 end
 
 function checkWin()
