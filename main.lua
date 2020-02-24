@@ -94,7 +94,7 @@ function AI() -- chooses where robot moves
 	local available = getAvailables()
 	local move
 	if #available == 0 then return end
-	-- Availables listed, now do super smort big brain stuff
+	-- super smort big brain stuff
 	for i,v in pairs(ways) do
 		local b1 = board[v[1]]
 		local b2 = board[v[2]]
@@ -115,9 +115,9 @@ function AI() -- chooses where robot moves
 	else return move end
 end
 
-while money > 0 do -- until bankrupt
-
-while true do -- for each move
+-- until bankrupt
+while money > 0 do while true
+do -- for each move
 	-- tell values
 	printBoard()
 
@@ -133,9 +133,7 @@ while true do -- for each move
 
 	-- robot move
 	local robomove = AI()
-	if robomove then
-		board[robomove] = false
-	end
+	if robomove then board[robomove] = false end
 
 	-- check for win
 	winner = checkWin()
