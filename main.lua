@@ -95,20 +95,19 @@ function AI() -- chooses where robot moves
 	local move
 	if #available == 0 then return end
 	-- super smort big brain stuff
-	for i,v in pairs(ways) do
+	for _,v in pairs(ways) do
 		local b1 = board[v[1]]
 		local b2 = board[v[2]]
 		local b3 = board[v[3]]
-		if (b1 == b2 and b1 ~= nil) then
-			move = b3
-			break
-		elseif (b1 == b3 and b1 ~= nil) then
+		if (b1 == b3 and b1 ~= nil) then
 			move = b2
-			break
+			break end
+		elseif (b1 == b2 and b1 ~= nil) then
+			move = b3
+			break end
 		elseif (b2 == b3 and b2 ~= nil) then
 			move = b1
-			break
-		end
+			break end
 	end
 	if not move then
 		return available[math.random(1,#available)]
@@ -132,8 +131,9 @@ do -- for each move
 	end
 
 	-- robot move
-	local robomove = AI()
-	if robomove then board[robomove] = false end
+	roboc = AI()
+	if roboc then board[AI()] = false else
+	end
 
 	-- check for win
 	winner = checkWin()
