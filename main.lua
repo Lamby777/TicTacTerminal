@@ -101,10 +101,10 @@ function AI() -- chooses where robot moves
 		local b3 = board[v[3]]
 		if (b1 == b3 and b1 ~= nil) then
 			move = b2
-			break end
+			break
 		elseif (b1 == b2 and b1 ~= nil) then
 			move = b3
-			break end
+			break
 		elseif (b2 == b3 and b2 ~= nil) then
 			move = b1
 			break end
